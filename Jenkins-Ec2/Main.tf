@@ -48,7 +48,7 @@ resource "aws_instance" "jenkins" {
   user_data              = templatefile("./install_jenkins.sh", {})
 
   tags = {
-    Name = "Jenkins"
+    Name = "Jenkins-Ansible"
   }
   root_block_device {
     volume_size = 8

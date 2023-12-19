@@ -24,7 +24,7 @@
     ansible_python_interpreter: /usr/bin/python3.10
     keypair: Deployer
     instance_type: t2.micro
-    image_id: ami-0f5ee92e2d63afc18
+    image_id: ami-0fc5d935ebf8bc3bc
     wait: yes
     group: webserver
     count: 1
