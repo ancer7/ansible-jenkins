@@ -28,7 +28,7 @@
     wait: yes
     group: webserver
     count: 1
-    region: ap-south-1
+    region: us-east-1
     security_group: ec2-security-group
     tag_name:
       Name: Aj-ec2   
