@@ -22,7 +22,7 @@
 
   vars:
     ansible_python_interpreter: /usr/bin/python3.10
-    keypair: Mumbai
+    keypair: Deployer
     instance_type: t2.micro
     image_id: ami-0f5ee92e2d63afc18
     wait: yes
@@ -74,15 +74,15 @@
         region: "{{ region }}"
         key_name: "{{ keypair }}"
         count: "{{ count }}"
-<<<<<<< HEAD:ec2.yml
-=======
-        tags: "{{ tag_name }}"
->>>>>>> 8a4f7adb77293a7d086f98dfa3d01770078bbc46:ec2.yaml
-        user_data: |
-          #!/bin/bash
-          sudo apt update -y
-          sudo apt install docker.io -y
-          sudo systemctl start docker
-          sudo systemctl enable docker
-          sudo docker run -d --name 2048 -p 3000:3000 sevenajay/2048:latest
-      register: ec2
+#<<<<<<< HEAD:ec2.yml
+#=======
+#        tags: "{{ tag_name }}"
+#>>>>>>> 8a4f7adb77293a7d086f98dfa3d01770078bbc46:ec2.yaml
+#        user_data: |
+#          #!/bin/bash
+#          sudo apt update -y
+#          sudo apt install docker.io -y
+#          sudo systemctl start docker
+#          sudo systemctl enable docker
+#          sudo docker run -d --name 2048 -p 3000:3000 sevenajay/2048:latest
+#      register: ec2
