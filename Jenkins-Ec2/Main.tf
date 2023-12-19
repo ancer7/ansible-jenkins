@@ -29,13 +29,23 @@ resource "aws_security_group" "Jenkins-sg" {
   }
 }
 
+resource "tls_private_key" "this" {
+  algorithm = "RSA"
+}
 
-resource "aws_instance" "web" {
-  ami                    = "ami-0f5ee92e2d63afc18"
+module "key_pair" {
+  source = "terraform-aws-modules/key-pair/aws"
+
+  key_name   = "Deployer"
+  public_key = trimspace(tls_private_key.this.public_key_openssh)
+}
+
+resource "aws_instance" "jenkins" {
+  ami                    = "ami-0fc5d935ebf8bc3bc"
   instance_type          = "t2.medium"
   key_name               = "Deployer"
   vpc_security_group_ids = [aws_security_group.Jenkins-sg.id]
-  user_data              = file ("./install_jenkins.sh", {})
+  user_data              = templatefile("./install_jenkins.sh", {})
 
   tags = {
     Name = "Jenkins"
